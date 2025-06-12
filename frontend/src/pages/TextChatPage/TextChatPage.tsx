@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ConversationView from "./components/ConversationView";
 import TextFieldBox from "./components/TextFieldBox";
 import type { Message } from "../../types/message";
+import { fetchMessage } from "../../api/openAiApi";
 
 export default function TextChatPage() {
     const [textInput, setTextInput] = useState("")
@@ -27,24 +28,23 @@ export default function TextChatPage() {
         // Step 2. SetConversation
         setMessages((prev: Message[])=> [...prev, userMessage, aiMessage])
         setTextInput("")
-
         // Step 3. GET request from openAI for the response
-        const response = await mockApiRequest()
-        setMessages((prev) => {
-            return prev.map((msg) =>
-                msg.id === "loading"
-                ? { ...msg, id: crypto.randomUUID(), content: response }
-                : msg
-            );
-        });
+        await getMessage()
     }   
     
-    function mockApiRequest(): Promise<string> {
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(`Response back! `);
-            }, 2000); // 3 seconds
-        });
+    async function getMessage() {
+        try {
+            const messageResponse = await fetchMessage()
+            setMessages((prev) => {
+                return prev.map((msg) =>
+                    msg.id === "loading"
+                    ? { ...msg, id: crypto.randomUUID(), content: messageResponse.message }
+                    : msg
+            )
+        })
+        } catch (error) {
+            console.log("Error/Frontend : On getMessage()")
+        } 
     }
 
     return (
@@ -56,7 +56,11 @@ export default function TextChatPage() {
                     </h1>
                 : <ConversationView messages={messages}/>
             }
-            <TextFieldBox textInput={textInput} setTextInput={setTextInput} handleSubmit={handleSubmit} />    
+            <TextFieldBox 
+                textInput={textInput} 
+                setTextInput={setTextInput} 
+                handleSubmit={handleSubmit} 
+            />    
         </div>
     </>
     )

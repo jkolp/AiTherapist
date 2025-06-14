@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import ConversationView from "./components/ConversationView";
 import TextFieldBox from "./components/TextFieldBox";
 import type { Message } from "../../types/message";
-import { fetchMessage } from "../../api/openAiApi";
+import { getResponse } from "../../api/openaiApi";
 
 export default function TextChatPage() {
     const [textInput, setTextInput] = useState("")
     const [messages, setMessages] = useState<Message[]>([])
     
-   async function handleSubmit(): Promise<void> {
+   async function handleSubmit() {
         // Check if empty textInput or not. If empty, do nothing.
         if (!textInput.trim()) {return}
 
         // Step 1. Create user and initial ai messages
         const userMessage: Message = {
             id: crypto.randomUUID(),
-            speaker: "user",
+            role: "user",
             content: textInput
         }
 
         const aiMessage: Message = {
             id: "loading",
-            speaker: "ai",
+            role: "ai",
             content: "..."
         }
 
@@ -29,23 +29,17 @@ export default function TextChatPage() {
         setMessages((prev: Message[])=> [...prev, userMessage, aiMessage])
         setTextInput("")
         // Step 3. GET request from openAI for the response
-        await getMessage()
-    }   
-    
-    async function getMessage() {
-        try {
-            const messageResponse = await fetchMessage()
-            setMessages((prev) => {
-                return prev.map((msg) =>
-                    msg.id === "loading"
-                    ? { ...msg, id: crypto.randomUUID(), content: messageResponse.message }
-                    : msg
+        let response = await getResponse(textInput)
+
+        // Step 4. Set messages array
+        setMessages( (prev) => {
+            return prev.map((msg) =>
+                msg.id === "loading"
+                ? { ...msg, id: crypto.randomUUID(), content: response }
+                : msg
             )
         })
-        } catch (error) {
-            console.log("Error/Frontend : On getMessage()")
-        } 
-    }
+    }   
 
     return (
     <>

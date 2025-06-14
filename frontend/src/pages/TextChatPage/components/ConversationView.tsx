@@ -21,7 +21,7 @@ export default function ConversationView( {messages}: ConversationViewProp ) {
             >
                 {
                     messages.map((message, index) => {
-                        if (message.speaker === "ai") {
+                        if (message.role === "ai") {
                             return <AiTextBubble key={index} message={message}/>
                         } else {
                             return <UserTextBubble key={index} message={message}/>

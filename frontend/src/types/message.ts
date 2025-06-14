@@ -1,8 +1,8 @@
 
-export type Speaker = "ai" | "user"
+export type Role = "ai" | "user"
 
 export type Message = {
     id : string
-    speaker: Speaker
+    role: Role
     content: string
 }

@@ -3,3 +3,13 @@
 /* body {
   background-color: #99d98a;
 } */
+
+/* Tailwind Scrollbar customization plugin */
+
+@plugin 'tailwind-scrollbar' {
+  nocompatible: true;
+}
+
+@theme {
+  --color-scrollbarColor : rgb(64, 64, 64, 0.5)
+}

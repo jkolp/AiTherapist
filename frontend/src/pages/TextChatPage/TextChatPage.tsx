@@ -43,7 +43,11 @@ export default function TextChatPage() {
 
     return (
     <>
-        <div className="w-full h-full flex flex-col items-center justify-center p-4">
+        <div className="w-full h-full flex flex-col items-center justify-center">
+            <div className={`w-full h-[30px] text-center border-b-1 
+                            ${messages.length > 0 ? "relative" : "absolute top-0"}` }>
+                NavBar
+            </div>
             { messages.length === 0 ? 
                     <h1 className="text-xl mb-3"> 
                     How can I help you?

@@ -8,18 +8,6 @@ description : Take user input and send it to the backend API to retrieve respons
 parameter : User input
 return : message from openAI
 */
-// export const fetchMessage = async (messages: Message[]) => { 
-//     try {
-//         const response = await axios.post(`${API_URL}/api/fetchResponse`, 
-//             { 
-//                 messages : messages[messages.length - 2]
-//             })
-//         return response.data.aiResponse;
-//     } catch (error) {
-//         console.error(`Error fetchMessage : ${error}`)
-//         throw error;
-//     }
-// };
 
 const fetchMessage = async (textInput: string) => { 
     try {

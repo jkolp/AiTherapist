@@ -9,7 +9,7 @@ router.post('/fetchResponse', async (req: Request, res: Response) => {
     const messages = req.body.messages
 
     const aiResponse = await getResponse(messages)
-    console.log(`aiResponse : ${aiResponse}`)
+
     res.json({aiResponse : aiResponse})
 })
 

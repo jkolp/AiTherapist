@@ -17,7 +17,9 @@ export default function ConversationView( {messages}: ConversationViewProp ) {
     return (
         <>
             <div 
-                className="w-full h-full overflow-y-scroll overflow-y-hidden max-w-[750px]"
+                className="w-full h-full overflow-y-scroll 
+                            scrollbar-thin scrollbar-track-scrollbarColor 
+                            scrollbar-track-rounded-full scrollbar-w-2"
             >
                 {
                     messages.map((message, index) => {

@@ -12,7 +12,7 @@ const agent = new Agent({
     model: 'gpt-4.1-nano',
     name: "Psychology Therapist",
     instructions:
-        "You are a wise and a professional therapist who help people understand their emotions and guide them to overcoming traumas. You are friendly and empathic with people's emotinos."
+        "You are a wise and a professional therapist who help people understand their emotions and guide them to overcoming traumas. You are friendly and empathic with people's emotions."
 })
 
 export const getResponse = async (textInput: string) : Promise<string | undefined>  => {

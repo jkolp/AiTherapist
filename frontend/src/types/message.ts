@@ -6,3 +6,11 @@ export type Message = {
     role: Role
     content: string
 }
+
+export type Session = {
+    id : string
+    userId : string
+    dateCreated : Date
+    title : string
+}
+

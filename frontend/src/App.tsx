@@ -6,6 +6,9 @@ import Sidebar from './components/Sidebar'
 
 function App() {
 
+  const [isSideBarOpen, setSideBar] = useState(false)
+
+
   return (
     <div className=' h-screen w-screen bg-[#99d98a] flex'>
       <Sidebar />

@@ -28,6 +28,7 @@ export default function TextChatPage() {
         // Step 2. SetConversation
         setMessages((prev: Message[])=> [...prev, userMessage, aiMessage])
         setTextInput("")
+        
         // Step 3. GET request from openAI for the response
         let response = await getResponse(textInput)
 
@@ -43,22 +44,23 @@ export default function TextChatPage() {
 
     return (
     <>
-        <div className="w-full h-full flex flex-col items-center justify-center">
-            <div className={`w-full h-[30px] text-center border-b-1 
-                            ${messages.length > 0 ? "relative" : "absolute top-0"}` }>
+        <div className="w-full h-full flex flex-col">
+            <div className="w-full h-[30px] text-center border-b-1 relative">
                 NavBar
             </div>
-            { messages.length === 0 ? 
-                    <h1 className="text-xl mb-3"> 
-                    How can I help you?
-                    </h1>
-                : <ConversationView messages={messages}/>
-            }
-            <TextFieldBox 
-                textInput={textInput} 
-                setTextInput={setTextInput} 
-                handleSubmit={handleSubmit} 
-            />    
+            <div className="h-full w-full flex flex-col items-center justify-center p-[10px]">
+                { messages.length === 0 ? 
+                        <h1 className="text-xl mb-3"> 
+                        How can I help you?
+                        </h1>
+                    : <ConversationView messages={messages}/>
+                }
+                <TextFieldBox 
+                    textInput={textInput} 
+                    setTextInput={setTextInput} 
+                    handleSubmit={handleSubmit} 
+                />    
+            </div>
         </div>
     </>
     )

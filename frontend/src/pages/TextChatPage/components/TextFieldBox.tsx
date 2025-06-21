@@ -31,29 +31,31 @@ export default function TextFieldBox({ textInput, setTextInput, handleSubmit } :
 
     return (
         <>
-            <form 
-                onSubmit={(e: React.FormEvent) => {
-                        e.preventDefault()
-                        handleSubmit()
+            <div className="px-[20px] pb-[20px]">
+                <form 
+                    onSubmit={(e: React.FormEvent) => {
+                            e.preventDefault()
+                            handleSubmit()
+                        }
                     }
-                }
-                className="flex flex-col bg-[#d4ffdf] rounded-[20px] w-full max-w-[750px]"
-            >
-                <textarea 
-                    className="w-full px-4 py-3 focus:outline-none resize-none"
-                    placeholder="Ask anything"
-                    ref={textAreaRef}
-                    onChange={handleChange}
-                    value={textInput}
-                    onKeyDown={onKeyDown}
-                />
-                <button
-                    type="submit"
-                    className="h-6 w-13 self-end rounded-lg m-3 text-white bg-gray-500"
+                    className="flex flex-col bg-[#d4ffdf] rounded-[20px] w-full max-w-[750px] m-auto"
                 >
-                    Send
-                </button>
-            </form>
+                    <textarea 
+                        className="w-full px-4 py-3 focus:outline-none resize-none"
+                        placeholder="Ask anything"
+                        ref={textAreaRef}
+                        onChange={handleChange}
+                        value={textInput}
+                        onKeyDown={onKeyDown}
+                    />
+                    <button
+                        type="submit"
+                        className="h-6 w-13 self-end rounded-lg m-3 text-white bg-gray-500"
+                    >
+                        Send
+                    </button>
+                </form>
+            </div>
         </>
     )
 }

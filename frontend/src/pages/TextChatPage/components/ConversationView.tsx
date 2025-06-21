@@ -16,21 +16,25 @@ export default function ConversationView( {messages}: ConversationViewProp ) {
 
     return (
         <>
-            <div 
+            <div
                 className="w-full flex-1 overflow-y-scroll 
-                            scrollbar-thin scrollbar-track-scrollbarColor 
-                            scrollbar-track-rounded-full scrollbar-w-2"
+                                scrollbar-thin scrollbar-track-scrollbarColor 
+                                scrollbar-track-rounded-full scrollbar-w-2"
             >
-                {
-                    messages.map((message, index) => {
-                        if (message.role === "ai") {
-                            return <AiTextBubble key={index} message={message}/>
-                        } else {
-                            return <UserTextBubble key={index} message={message}/>
-                        }
-                    })
-                }
-                <div className="scroll-point" ref={scrollRef}></div>
+                <div 
+                    className="px-[10px]"
+                >
+                    {
+                        messages.map((message, index) => {
+                            if (message.role === "ai") {
+                                return <AiTextBubble key={index} message={message}/>
+                            } else {
+                                return <UserTextBubble key={index} message={message}/>
+                            }
+                        })
+                    }
+                    <div className="scroll-point" ref={scrollRef}></div>
+                </div>
             </div>
         </>
     )

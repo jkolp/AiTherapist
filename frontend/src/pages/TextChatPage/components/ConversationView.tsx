@@ -17,7 +17,7 @@ export default function ConversationView( {messages}: ConversationViewProp ) {
     return (
         <>
             <div 
-                className="w-full h-full overflow-y-scroll 
+                className="w-full flex-1 overflow-y-scroll 
                             scrollbar-thin scrollbar-track-scrollbarColor 
                             scrollbar-track-rounded-full scrollbar-w-2"
             >
@@ -30,7 +30,7 @@ export default function ConversationView( {messages}: ConversationViewProp ) {
                         }
                     })
                 }
-                <div ref={scrollRef}></div>
+                <div className="scroll-point" ref={scrollRef}></div>
             </div>
         </>
     )

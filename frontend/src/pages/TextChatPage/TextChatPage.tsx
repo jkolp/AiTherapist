@@ -48,9 +48,9 @@ export default function TextChatPage() {
             <div className="w-full h-[30px] text-center border-b-1 relative">
                 NavBar
             </div>
-            <div className="h-full w-full flex flex-col items-center justify-center p-[10px]">
+            <div className="flex-1 flex flex-col justify-center pb-[10px] px-[10px] overflow-hidden">
                 { messages.length === 0 ? 
-                        <h1 className="text-xl mb-3"> 
+                        <h1 className="text-xl mb-3 text-center"> 
                         How can I help you?
                         </h1>
                     : <ConversationView messages={messages}/>

@@ -6,6 +6,11 @@
 
 /* Tailwind Scrollbar customization plugin */
 
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
 @plugin 'tailwind-scrollbar' {
   nocompatible: true;
 }

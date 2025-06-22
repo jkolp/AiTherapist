@@ -9,7 +9,7 @@ export default function Sidebar() {
     }
 
     return (
-        <div className="w-[300px] bg-[#50d71e] h-full">
+        <div className="w-[350px] bg-darkerGreenTea border-solid h-full">
             Sidebar
         </div>
     )

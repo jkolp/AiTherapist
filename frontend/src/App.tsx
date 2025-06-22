@@ -10,7 +10,7 @@ function App() {
 
 
   return (
-    <div className='h-full w-full min-h-[600px] bg-[#99d98a] flex overflow-hidden'>
+    <div className='h-full w-full min-h-[600px] bg-mainBg flex overflow-hidden'>
       <Sidebar />
       <TextChatPage />
     </div>

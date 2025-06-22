@@ -38,7 +38,10 @@ export default function TextFieldBox({ textInput, setTextInput, handleSubmit } :
                             handleSubmit()
                         }
                     }
-                    className="flex flex-col bg-[#d4ffdf] rounded-[20px] w-full max-w-[750px] m-auto"
+                    className="flex flex-col 
+                                w-full max-w-[750px] m-auto
+                                bg-teaGreen border border-[#B7D2C0] rounded-[20px] placeholder-[#7D998D]
+                                focus:outline-none focus:ring-2 focus:ring-[#A8D5BA]"
                 >
                     <textarea 
                         className="w-full px-4 py-3 focus:outline-none resize-none"

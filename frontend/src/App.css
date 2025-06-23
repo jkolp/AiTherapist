@@ -20,6 +20,6 @@ html, body, #root {
   --color-scrollbarColor : rgb(64, 64, 64, 0.5);
   --color-mainBg : #F5F5F5; 
   --color-teaGreen : #DFF5E1; /* TextFieldBox */
-  --color-darkerGreenTea : #C9EECF; /* Sidebar and text bubbles */
+  --color-darkerGreenTea : #b2d9b8; /* Sidebar and text bubbles */
 }
 /* Alabaster : F5F5F5 */

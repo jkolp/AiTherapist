@@ -53,7 +53,9 @@ export default function TextFieldBox({ textInput, setTextInput, handleSubmit } :
                     />
                     <button
                         type="submit"
-                        className="h-6 w-13 self-end rounded-lg m-3 text-white bg-gray-500"
+                        className="h-6 w-13 self-end rounded-lg m-3 
+                                    bg-[#A8D5BA] hover:bg-[#7BAE8C]
+                                    shadow-sm"
                     >
                         Send
                     </button>

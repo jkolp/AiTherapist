@@ -46,7 +46,7 @@ export default function TextChatPage() {
     <>
         <div className="w-full h-full flex flex-col">
             <div className="w-full h-[30px] text-center border-b-1 relative">
-                NavBar
+                Untangle
             </div>
             <div className="flex-1 flex flex-col justify-center overflow-hidden">
                 { messages.length === 0 ? 

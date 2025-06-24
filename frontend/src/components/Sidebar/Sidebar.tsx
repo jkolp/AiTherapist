@@ -25,7 +25,6 @@ export default function Sidebar({isOpen, setIsOpen, sessions}: SidebarProps) {
             {
                 isOpen ? (
                     <div className="flex-1 flex flex-col">
-                        <h1 className="mb-10"> Sessions </h1>
                         <div className="h-full">
                             <ul className="flex flex-col gap-y-2 px-3">
                                 {

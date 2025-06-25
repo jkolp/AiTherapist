@@ -8,7 +8,7 @@ const PORT: number = parseInt(process.env.PORT || '3000', 10)
 // Middleware to parse JSON requests
 app.use(express.json());
 app.use(cors({
-    origin: "http://localhost:5173"
+    origin: "http://localhost:5174"
 }))
 
 // Route setup

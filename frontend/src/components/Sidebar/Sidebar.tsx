@@ -17,7 +17,8 @@ export default function Sidebar({isOpen, setIsOpen, sessions}: SidebarProps) {
 
     return (
         <div className={`${isOpen ? 'w-90 overflow-y-scroll' : 'w-12'} 
-                        bg-darkerGreenTea border-solid h-full flex flex-col 
+                        bg-darkerGreenTea border-solid h-full flex flex-col
+                        scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-darkerGreenTea 
                         transition-[width] duration-300 ease-in-out `}>
             
             <StickyHeader isOpen={isOpen} handleToggle={handleToggle} />

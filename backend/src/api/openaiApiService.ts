@@ -1,6 +1,6 @@
-import dotenv from 'dotenv'
 import { Agent, run, setDefaultOpenAIKey } from '@openai/agents'
-import { Message } from '../types/messages';
+import { Message } from '../types/types';
+import dotenv from 'dotenv';
 
 // Link variables inside .env file
 dotenv.config()

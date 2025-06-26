@@ -5,6 +5,7 @@ import cors from 'cors'
 const app: Application = express();
 const PORT: number = parseInt(process.env.PORT || '3000', 10)
 
+
 // Middleware to parse JSON requests
 app.use(express.json());
 app.use(cors({

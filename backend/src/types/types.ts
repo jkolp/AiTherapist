@@ -1,7 +1,15 @@
 export type Role = "ai" | "user"
 
-export type Message = {
+export interface Message {
     id : string
     role: Role
     content: string
+    sessionId: string
+}
+
+export interface Session {
+    id: string
+    userId: string
+    dateCreated: Date
+    title: string
 }

@@ -11,16 +11,10 @@ function mapToSession(row: any): Session {
     };
 }
 
+// Description: Returns an array of Session Objects for a given userId
+// This function fetches all sessions for a user and maps the raw database rows to Session objects
 export const fetchAllSessions = async (userId: string) : Promise< Session[]> => {
-    try {
-        const resultRows = await getAllSessions(userId);
-        return resultRows.map(mapToSession);
-    } catch (error) {
-        if (error instanceof Error) {
-            console.error("Error fetching all sessions:", error.message);
-            throw new Error("Failed to fetch sessions");
-        }
-        throw new Error("Unknown error occurred");
-    }
+    const resultRows = await getAllSessions(userId);
+    return resultRows.map(mapToSession);
 }
 

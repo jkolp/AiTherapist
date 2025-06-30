@@ -14,12 +14,3 @@ export const getAllSessions = async (userId: string) => {
     return result.rows;
 }
 
-// export const getSessionById = async (sessionID: string) => {
-//  const query = `
-//         SELECT * FROM sessions
-//         WHERE id = $1
-//     `;
-//     const values = [sessionID];
-//     const result = await pool.query(query, values);
-//     return result.rows[0];
-// }

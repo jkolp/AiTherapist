@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 import * as sessionService from '../services/session.service';  
 
 export const handleGetUserSessions = async (req: Request, res: Response) => {
+    console.log("Reached HandleGetUserSEssions")
     const userID = req.params.userId;
     try {
         const sessions = await sessionService.fetchAllSessions(userID);
@@ -10,8 +11,8 @@ export const handleGetUserSessions = async (req: Request, res: Response) => {
     }  catch (error) {
         if (error instanceof Error) {
             console.error("Error fetching all sessions:", error.message);
-            throw new Error("Failed to fetch sessions");
+            res.status(500).json({ error: error.message });
         }
-        throw new Error("Unknown error occurred");
+        res.status(500).json({ error: 'An unexpected error occurred while fetching sessions.' });
     }
 }

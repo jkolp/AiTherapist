@@ -2,7 +2,7 @@ import { useState } from "react";
 import ConversationView from "./components/ConversationView";
 import TextFieldBox from "./components/TextFieldBox";
 import type { Message } from "../../types/message";
-import { getResponse } from "../../api/openaiApi";
+import { getResponse } from "../../services/openaiApi"
 
 export default function TextChatPage() {
     const [textInput, setTextInput] = useState("")

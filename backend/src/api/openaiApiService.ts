@@ -18,6 +18,5 @@ const agent = new Agent({
 export const getResponse = async (textInput: string) : Promise<string | undefined>  => {
     const result = await run(agent, textInput)
     const response = result.finalOutput
-    console.log(response)
     return response
 }

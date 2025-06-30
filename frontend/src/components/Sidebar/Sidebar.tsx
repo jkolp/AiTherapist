@@ -21,16 +21,18 @@ export default function Sidebar({isOpen, setIsOpen, sessions}: SidebarProps) {
                         scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-darkerGreenTea 
                         transition-[width] duration-300 ease-in-out `}>
             
-            <StickyHeader isOpen={isOpen} handleToggle={handleToggle} />
+            <StickyHeader isOpen={isOpen} handleToggle={handleToggle}/>
 
             {
                 isOpen ? (
                     <div className="flex-1 flex flex-col">
                         <div className="h-full">
-                            <ul className="flex flex-col gap-y-2 px-3">
+                            <ul>
                                 {
                                     sessions.map( (session) => 
-                                        <li key={session.id} className="gap-x-2">
+                                        <li key={session.id} 
+                                            className="text-sm px-1 py-1.5 ml-1.5 rounded-md
+                                                        truncate hover:bg-gray-100">
                                             {session.title}
                                         </li>
                                     )

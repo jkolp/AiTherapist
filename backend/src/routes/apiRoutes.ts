@@ -6,15 +6,21 @@ import dotenv from 'dotenv'
 
 const router = Router();
 
-router.get('/fetchResponse', async (req: Request, res: Response) => {
+router.post('/fetchResponse', async (req: Request, res: Response) => {
     console.log("Reached /fetchResponse API")
     const messages = req.body.messages
 
-    const aiResponse = await getResponse(messages)
-
-    res.json({aiResponse : aiResponse})
+    try {
+        const aiResponse = await getResponse(messages)
+        res.json({aiResponse : aiResponse})
+    } catch (error) {
+        console.error("Error fetching AI response:", error);
+        res.status(500).json({ error: 'Failed to fetch AI response.' });
+    }
 })
 
+// Endpoint to fetch all sessions for a user
+// This will call the controller which in turn calls the service and repo layers
 router.get('/getSessions/:userId', handleGetUserSessions)
 
 export default router
